@@ -26,6 +26,7 @@
 | Nicolas Pinochet Brouillette | justpino7 | 40157614 |
 | Jeremy Vo Buu | Jeremy-Vo-Buu | 40131772 |   
 | Mostafa El Boustani | MosesSeaSplitter | 40023779 |  
+|Victor Tobar | MKB-1 | 40042766 |
 
 ## FrontEnd
 * 
