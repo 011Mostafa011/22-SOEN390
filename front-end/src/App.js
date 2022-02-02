@@ -16,6 +16,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import Signup from './Component/signup';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/signup" element={<Signup/>}/>
       </Routes>
     </Router>
 
