@@ -12,7 +12,15 @@ const Login=()=>{
     const avatarStyle={backgroundColor:'blue'}
     const buttonStyle={margin:"8px 0"}
     const textFieldStyle={margin:"10px 0"}
-
+    function handleSubmit(event){
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", 'http://localhost:1337/api/v1/entrance/login', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            emailAdress: email,
+            password: pass
+        }));
+    }
     return(
         <Grid>
             <Paper elevation ={10} style={paperStyle}>
@@ -20,8 +28,10 @@ const Login=()=>{
                     <Avatar style={avatarStyle}><LockOutlinedIcon/></Avatar>
                     <h2>Sign In</h2>
                 </Grid>
-                <TextField style={textFieldStyle} label='Email' placeholder='Enter your email address' fullWidth required/>
-                <TextField style={textFieldStyle} label='Password' placeholder='Enter your password' type='password' fullWidth required/>
+                <form onSubmit={handleSubmit}>
+                    <TextField style={textFieldStyle} value={email} label='Email' placeholder='Enter your email address' fullWidth required/>
+                    <TextField style={textFieldStyle} value={pass} label='Password' placeholder='Enter your password' type='password' fullWidth required/>
+                </form>
                 <FormControlLabel
                     control={
                         <Checkbox
