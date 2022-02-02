@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import {Grid, Paper, Avatar, TextField, Typography, Link} from '@mui/material'
+import {Grid, Paper, Avatar, TextField, Typography} from '@mui/material'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
+import { Link } from "react-router-dom";
 
 const axios = require('axios').default;
 
@@ -54,16 +55,16 @@ const Login=()=>{
                 <Button type="submit" color="primary" fullWidth variant="contained" style={buttonStyle}>Sign in</Button>
                 </form>
                 <Typography>
-                    <Link href="#" >
-                        Forgot password
+                    <Link to="">
+                        Forgot password  
                     </Link>
                 </Typography>
                 <Typography> New to the app?
-                    <Link to="/signup" >
+                    <Link to="/signup">
                         Sign Up
                     </Link>
                 </Typography>
-
+                    
 
             </Paper>
         </Grid>
