@@ -59,7 +59,7 @@ const Login=()=>{
                     </Link>
                 </Typography>
                 <Typography> New to the app?
-                    <Link href="#" >
+                    <Link to="/signup" >
                         Sign Up
                     </Link>
                 </Typography>

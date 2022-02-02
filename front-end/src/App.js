@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Login from './Component/login';
 import Dashboard from './Component/dashboard'
+import Signup from './Component/signup'
 import {
   BrowserRouter as Router,
   Routes,
@@ -43,6 +44,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/signup" element={<Signup/>}/>
       </Routes>
     </Router>
 
