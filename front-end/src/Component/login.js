@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import {Grid, Paper, Avatar, TextField, Typography, Link} from '@mui/material'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 
+const axios = require('axios').default;
 
 const Login=()=>{
 
@@ -12,15 +13,24 @@ const Login=()=>{
     const avatarStyle={backgroundColor:'blue'}
     const buttonStyle={margin:"8px 0"}
     const textFieldStyle={margin:"10px 0"}
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     function handleSubmit(event){
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", 'http://localhost:1337/api/v1/entrance/login', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({
-            emailAdress: email,
-            password: pass
-        }));
+        event.preventDefault();
+        console.log(email)
+        console.log(password)
+        axios.post('http://localhost:1337/api/v1/entrance/login',{
+            emailAddress: email,
+            password: password
+        }).then(function (response){
+            console.log(response);
+        }).catch(function(error){
+            console.log(error)
+        })
     }
+
     return(
         <Grid>
             <Paper elevation ={10} style={paperStyle}>
@@ -29,9 +39,9 @@ const Login=()=>{
                     <h2>Sign In</h2>
                 </Grid>
                 <form onSubmit={handleSubmit}>
-                    <TextField style={textFieldStyle} value={email} label='Email' placeholder='Enter your email address' fullWidth required/>
-                    <TextField style={textFieldStyle} value={pass} label='Password' placeholder='Enter your password' type='password' fullWidth required/>
-                </form>
+                    <TextField style={textFieldStyle} value={email} onInput={ e=>setEmail(e.target.value)} label='Email' placeholder='Enter your email address' fullWidth required/>
+                    <TextField style={textFieldStyle} value={password} onInput={e=>setPassword(e.target.value)} label='Password' placeholder='Enter your password' type='password' fullWidth required/>
+                
                 <FormControlLabel
                     control={
                         <Checkbox
@@ -42,6 +52,7 @@ const Login=()=>{
                     label="Remember me"
                 />
                 <Button type="submit" color="primary" fullWidth variant="contained" style={buttonStyle}>Sign in</Button>
+                </form>
                 <Typography>
                     <Link href="#" >
                         Forgot password
