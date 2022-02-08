@@ -1,7 +1,7 @@
 ﻿# 22-SOEN390
 ## Description
 
-
+[Deliverables for Sprint 1](https://docs.google.com/document/d/1VS7R0x6fbWhd29tpR1RLlQLg-y7TLf1U4UyBvuP8muQ/edit?usp=sharing)
 
 ## Core Features
 * 
