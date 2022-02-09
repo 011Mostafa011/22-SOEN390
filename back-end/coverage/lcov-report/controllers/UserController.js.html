@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for responses/unauthorized.js</title>
+    <title>Code coverage report for controllers/UserController.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">all files</a> / <a href="index.html">responses/</a> unauthorized.js
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> UserController.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">44.44% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/4</span>
+        <span class='fraction'>4/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">44.44% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/4</span>
+        <span class='fraction'>4/9</span>
       </div>
     </div>
   </div>
@@ -72,63 +72,81 @@
 27
 28
 29
-30</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+30
+31
+32
+33
+34
+35
+36</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * unauthorized.js
+ * UserController
  *
- * A custom response that content-negotiates the current request to either:
- *  • log out the current user and redirect them to the login page
- *  • or send back 401 (Unauthorized) with no response body.
- *
- * Example usage:
- * ```
- *     return res.unauthorized();
- * ```
- *
- * Or with actions2:
- * ```
- *     exits: {
- *       badCombo: {
- *         description: 'That email address and password combination is not recognized.',
- *         responseType: 'unauthorized'
- *       }
- *     }
- * ```
+ * @description :: Server-side logic for managing Users
  */
-module.exports = <span class="fstat-no" title="function not covered" >function unauthorized() {</span>
-<span class="cstat-no" title="statement not covered" >  var res = this.res;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  sails.log.verbose("Ran custom response: res.unauthorized()");</span>
+const userRepository = require("../repositories/UserRepository");
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return res.sendStatus(401);</span>
+module.exports = {
+  create: (req, res) =&gt; {
+    userRepository
+      .upsert(req.body)
+      .then((user) =&gt; {
+        return res.status(200).json(user);
+      })
+      .catch((err) =&gt; {
+<span class="cstat-no" title="statement not covered" >        return res.status(400).send(err);</span>
+      });
+  },
+&nbsp;
+  update: (req, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >    userRepository</span>
+      .upsert(req.body, req.param("id"))
+      .then((user) =&gt; {
+<span class="cstat-no" title="statement not covered" >        return res.status(200).json(user);</span>
+      })
+      .catch((err) =&gt; {
+<span class="cstat-no" title="statement not covered" >        return res.status(400).send(err);</span>
+      });
+  },
+&nbsp;
+  me: (req, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >    res.status(200).json(req.user);</span>
+  },
 };
 &nbsp;</pre></td></tr>
 </table></pre>

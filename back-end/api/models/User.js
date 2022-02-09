@@ -47,11 +47,27 @@ email status until they click the link in the confirmation email.`,
       example: "2$28a8eabna301089103-13948134nad",
     },
 
-    fullName: {
+    firstName: {
       type: "string",
       required: true,
-      description: "Full representation of the user's name.",
+      description: "User's first name.",
       maxLength: 120,
+      example: "Mary",
+    },
+
+    lastName: {
+      type: "string",
+      required: true,
+      description: "User's last name.",
+      maxLength: 120,
+      example: "Sue van der McHenst",
+    },
+
+    fullName: {
+      type: "string",
+      required: false,
+      description: "Full representation of the user's name.",
+      maxLength: 240,
       example: "Mary Sue van der McHenst",
     },
 
@@ -100,5 +116,26 @@ email status until they click the link in the confirmation email.`,
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     // n/a
+  },
+
+  customToJSON: function () {
+    return _.omit(this, [
+      "password",
+      "emailChangeCandidate",
+      "passwordResetToken",
+      "passwordResetTokenExpiresAt",
+      "emailProofToken",
+      "emailProofTokenExpiresAt",
+    ]);
+  },
+
+  beforeCreate: function (user, callback) {
+    if (user.firstName && user.lastName) {
+      user.fullName = user.firstName + " " + user.lastName;
+    }
+
+    user.emailAddress = user.emailAddress.toLowerCase();
+
+    callback(null, user);
   },
 };
