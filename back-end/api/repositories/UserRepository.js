@@ -7,9 +7,7 @@
 class UserRepository {
   findByEmail = (email) => {
     return new Promise((resolve, reject) => {
-      //   console.log("findByEmail:", email);
       let emailAddress = email.emailAddress ? email.emailAddress : email;
-      //   console.log("emailAddress:", emailAddress);
       User.findOne({ emailAddress })
         .then((result) => {
           console.log("findByEmail result:", result);
