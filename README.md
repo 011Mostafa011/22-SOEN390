@@ -31,16 +31,16 @@ The Covid-19 tracking project app aims to give public health officials the abili
 ### FrontEnd
 * Reacts.js
 * 
-``` npm start
-
+``` 
+npm start
 ```
 
 
 ### BackEnd
 * Sail.js 
 * MongoDb 
-```npm start
-
+```
+npm start
 ```
 
 ```
