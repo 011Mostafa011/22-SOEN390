@@ -25,21 +25,21 @@ The Covid-19 tracking project app aims to give public health officials the abili
 * Docker container friendly
 
 
-##Technnoligies used
+## Technnoligies used
 
 
 ### FrontEnd
 * Reacts.js
 * 
-```
+``` npm start
 
 ```
 
 
-## BackEnd
+### BackEnd
 * Sail.js 
 * MongoDb 
-```
+```npm start
 
 ```
 
